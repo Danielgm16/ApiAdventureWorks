@@ -1,0 +1,16 @@
+pip install flask pyodbc
+
+#MODIFICAR LAS TABLAS PARA BORRADO EN CASCADE
+``` SQL
+
+ALTER TABLE Sales.Customer
+DROP CONSTRAINT FK_Customer_Person_PersonID;
+
+ALTER TABLE Sales.Customer
+ADD CONSTRAINT FK_Customer_Person_PersonID
+FOREIGN KEY (PersonID)
+REFERENCES Person.Person (BusinessEntityID)
+ON DELETE CASCADE;
+
+```
+
